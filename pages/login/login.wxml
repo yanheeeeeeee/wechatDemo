@@ -1,0 +1,6 @@
+<!--pages/login/login.wxml-->
+<view>
+<view class="login-container">
+<image class="logo" src="/assets/images/logo@2x.png"> </image>
+</view>
+</view>
