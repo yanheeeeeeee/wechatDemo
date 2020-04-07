@@ -1,0 +1,8 @@
+<!--components/search-bar/search-bar.wxml-->
+<view class="searchBar">
+  <icon class="searchBarIcon" type="search" color="#ff8d44" size="15"></icon>
+  <view class="searchBarInput">
+<text>{{placeholder}}</text>
+  </view>
+</view>
+

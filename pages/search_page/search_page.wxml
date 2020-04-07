@@ -1,0 +1,11 @@
+<!--pages/search_page/search_page.wxml-->
+<van-search value="{{ searchValue }}" shape="round" placeholder="请输入搜索关键词" show-action bind:change="getSearchValue" bind:search="onSearch" bind:cancel="onCancel"></van-search>
+<!-- 搜索结果 -->
+	<view class="search-body">
+    <!-- 搜索结果为空时显示 -->
+		<view class="empty" wx:if="{{courseList.length === 0}}">
+			<text class="title">暂无内容哦~</text>
+		</view>
+    <!-- 有搜索结果时显示 -->
+		<course-list courseList="{{courseList}}"></course-list>
+</view>

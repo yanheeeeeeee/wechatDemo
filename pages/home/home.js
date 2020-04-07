@@ -1,18 +1,49 @@
 // pages/home/home.js
+const app = getApp()
+import fetch from "../../utils/fetch.js"
 Page({
-
+  
   /**
    * 页面的初始数据
    */
   data: {
-
+    swiperList: [],
+    courseList: [],
+    videos: [], // 热门视频
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 2000,
+    duration: 500
   },
+
+    // 点击搜索框跳转至搜索页面
+    toSearchPage(){
+      wx.navigateTo({
+        url: '../search_page/search_page',
+      })
+    },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+    // 获取轮播图
+    let res = await fetch({url:"home/swipers"})
+    console.log(res);
+    this.setData({swiperList:res.data.message})
 
+    // 获取推荐课程
+    let res2 = await fetch({url:"home/course"})
+    console.log(res2);
+    this.setData({courseList:res2.data.message})
+    
+    
+  // 获取推荐课程数据
+    const res3 = await fetch({url: 'home/video'})
+    this.setData({
+      videos: res3.data.message
+    })
   },
 
   /**

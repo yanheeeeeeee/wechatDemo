@@ -1,2 +1,48 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="main">
+	<!-- 搜索框 -->
+	<search-bar placeholder="请输入搜索的课程" bindtap="toSearchPage">
+		</search-bar>
+		<!-- 轮播图 -->
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<block wx:for="{{swiperList}}" wx:key="id">
+				<swiper-item>
+					<view>
+						<image class="swiperImg" src="{{item.img_url}}"></image>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+
+		<!-- 推荐课程 -->
+		<view>
+			<!--  模块标题 -->
+			<view class="tip">
+				<text class="tip_text">推荐课程</text>
+				<image src="/assets/images/arrow@2x.png"></image>
+			</view>
+			<!-- 模块内容 -->
+			<view>
+        <scroll-view class="scroll-view" scroll-x="true" bindscroll="scroll" style="width: 100%">
+				<view wx:for="{{courseList}}" wx:key="id" class="course_item"> 
+				<image src="{{item.icon}}" width="296rpx"></image>
+				</view>
+        </scroll-view>
+		</view>
+		
+	<!-- 热门视频 -->
+	<view>
+		<view class="tip">
+			<text class="tip_text">热门视频</text>
+			<image src="/assets/images/arrow@2x.png" alt="" />
+		</view>
+		<view class="hot-video">
+			<navigator url="{{'/pages/course-detail/course-detail?id='+item.course_id}}" class="video-item" wx:for="{{videos}}" wx:key="{{item.id}}">
+				<image src="{{item.cover_photo_url}}" alt="" />
+				<text class="title">{{item.name}}</text>
+				<text class="subtitle">{{item.view_count}}人已观看</text>
+			</navigator>
+		</view>
+	</view>
+		</view>
+</view>

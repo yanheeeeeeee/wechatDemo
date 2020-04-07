@@ -1,18 +1,25 @@
 // pages/course/course.js
+import fetch from "../../utils/fetch"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    courseList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    let res=await fetch({
+      url:"course/list"
+    })
+    
+    if (res.data.status === 0) {
+    this.setData({courseList:res.data.message})
+    }
   },
 
   /**

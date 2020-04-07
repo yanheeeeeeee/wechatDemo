@@ -1,10 +1,13 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/phone-login/phone-login",
     "pages/home/home",
     "pages/course/course",
     "pages/study/study",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/search_page/search_page",
+    "pages/course_detail/course_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,6 +16,10 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#fff",
+    "selectedColor": "#ff9a29",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/home/home",
@@ -40,6 +47,5 @@
       }
     ]
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
